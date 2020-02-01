@@ -1,6 +1,6 @@
 name: ByLine
 
-on: [push]
+on: [create]
 
 jobs:
   build:
