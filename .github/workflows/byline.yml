@@ -12,7 +12,7 @@ jobs:
     - name: Echo
       run: |
         echo 'user $GITHUB_ACTOR
-        repo $GITHUB_REPOSITORY' >> .byline
+        repo $GITHUB_REPOSITORY' > .byline
     - name: Commit files
       run: |
         git config --local user.email "action@github.com"
