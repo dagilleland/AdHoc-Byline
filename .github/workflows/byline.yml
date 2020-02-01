@@ -10,18 +10,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Echo
-      run: echo "$GITHUB_ACTOR" | sudo tee .info
-    - name: Write File
-      uses: finnp/create-file-action@1.0.0
-      env:
-        FILE_NAME: ".byline"
-        FILE_DATA: "user: {{ GITHUB_ACTOR}}\nrepo: $GITHUB_REPOSITORY$"
+      run: echo "user: $GITHUB_ACTOR\brepo: $GITHUB_REPOSITORY" | sudo tee .byline -a
     - name: Commit files
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add .byline
-        git add .info
         git commit -m "User Byline Generated"
     - name: Push changes
       uses: ad-m/github-push-action@master
