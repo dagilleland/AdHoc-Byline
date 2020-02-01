@@ -10,10 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Echo
-      run: |
-        $actor=$GITHUB_ACTOR
-        echo 'user $actor
-        repo $GITHUB_REPOSITORY' > .byline
+      run: echo 'user $GITHUB_ACTOR repo $GITHUB_REPOSITORY' > .byline
     - name: Commit files
       run: |
         git config --local user.email "action@github.com"
