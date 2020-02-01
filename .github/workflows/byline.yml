@@ -1,0 +1,19 @@
+name: ByLine
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: finnp/create-file-action@1.0.0
+      env:
+        FILE_NAME: ".byline"
+        FILE_DATA: |
+          user: $GITHUB_ACTOR$
+          repo: $GITHUB_REPOSITORY$
+          
+          
