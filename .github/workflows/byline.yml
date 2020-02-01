@@ -12,9 +12,7 @@ jobs:
     - uses: finnp/create-file-action@1.0.0
       env:
         FILE_NAME: ".byline"
-        FILE_DATA: |
-          user: $GITHUB_ACTOR$
-          repo: $GITHUB_REPOSITORY$
+        FILE_DATA: "user: {{ GITHUB_ACTOR}}\nrepo: $GITHUB_REPOSITORY$"
     - name: Commit files
       run: |
         git config --local user.email "action@github.com"
